@@ -1,0 +1,18 @@
+  Build image
+  ============
+  1) Build with progress and no cache (or)
+    docker image build --progress=plain --no-cache=true -t nginx-ssl .
+  2) Build with progress and cache (or)
+    docker image build --progress=plain -t nginx-ssl .
+  3) Build with no cache (or)
+    docker image build --no-cache=true -t nginx-ssl .
+  4) Build with cache
+    docker image build -t nginx-ssl .
+  
+  Start Container
+  ================
+  docker run -p 443:443 -d nginx-ssl
+
+  Open ssl
+  ========
+  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout cert.key -out cert.crt
